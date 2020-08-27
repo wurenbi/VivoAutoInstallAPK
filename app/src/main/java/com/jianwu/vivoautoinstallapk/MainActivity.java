@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
         password = findViewById(R.id.password);
 
+        String word = (String) SharePreferencesUtils.getParam(getApplicationContext(),
+                AppConstants.KEY_PASSWORD, "");
+
+        if (!TextUtils.isEmpty(word)) {
+            password.setText(word);
+        }
+
         password.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
